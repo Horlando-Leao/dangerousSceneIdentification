@@ -3,8 +3,9 @@
 //import '../dowload/model.json' as modelJsonFile
 
     // especificando meu modelo. local onde está.
-    const URL = "https://teachablemachine.withgoogle.com/models/uOYNl9z_j/";
-
+    //const URL = "https://teachablemachine.withgoogle.com/models/uOYNl9z_j/";//antigo
+   
+    const URL = "https://teachablemachine.withgoogle.com/models/-yfRH753N/";//novo
     let model, webcam, labelContainer, maxPredictions;
 
     // Load the image model and setup the webcam
@@ -56,7 +57,7 @@
             //evitar que os outras classes sejam preditas
             if (prediction[i].probability > 0.7) {
 
-                if (prediction[i].probability > 0.99) {
+                if (prediction[i].probability > 0.75 && prediction[i].className == "ARMAS") {
                     labelContainer.childNodes[i].innerHTML = alert("ATENÇÃO: " + prediction[i].className + " NA PORTARIA");
                 }else{
 
