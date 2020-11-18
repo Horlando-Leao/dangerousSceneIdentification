@@ -1,0 +1,22 @@
+#AUMENTAR ACURACIA NOS PARÂMETROS
+detectMultiScale(
+const Mat& image,  vector<Rect>& objects, 
+double scaleFactor=1.1, int minNeighbors=3, 
+int flags=0, Size minSize=Size(), Size maxSize=Size() )
+
+
+#DEFINE MINHA MATRIZ: X, Y , LARG, ALTU
+"""os chamados recursos do tipo Haar. Um recurso semelhante a Haar considera regiões retangulares 
+adjacentes em um local específico em uma janela de detecção, soma as intensidades de pixel em cada 
+região e calcula a diferença entre essas somas. Essa diferença é então usada para categorizarsubseções 
+de uma imagem. Por exemplo, com um rosto humano, é comum a observação de que entre todos os rostos a 
+região dos olhos é mais escura do que a região das bochechas. Portanto, um recurso Haar comum para 
+detecção de rosto é um conjunto de dois retângulos adjacentes que ficam acima do olho e da região da 
+bochecha. A posição desses retângulos é definida em relação a uma janela de detecção que atua como 
+uma caixa delimitadora para o objeto de destino (a face, neste caso)."""
+
+
+scaleFactor = diminiur a imagem para captar mais faces
+minNeighbors = maior o minNeighbors maior a qualidade da imagem, retangulos candidatos
+minSize = tamanho do objeto, tamanho do objeto
+
