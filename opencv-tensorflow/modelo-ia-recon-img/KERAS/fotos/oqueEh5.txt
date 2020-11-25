@@ -1,0 +1,6 @@
+
+
+
+que é um formato de arquivo para armazenar dados estruturados, 
+não é um modelo em si. Keras salva os modelos neste formato, 
+pois pode armazenar facilmente os pesos e a configuração do modelo em um único arquivo.
