@@ -24,7 +24,7 @@
         // Observação: a biblioteca de pose adiciona o objeto "tmImage" à sua janela (window.tmImage)
         model = await tmImage.load(modelURL, metadataURL);
         maxPredictions = model.getTotalClasses();
-
+        
         // Função de conveniência para configurar uma webcam
         const flip = true; // se deve virar a webcam
         webcam = new tmImage.Webcam(400, 400, flip); // largura, altura, inverter
@@ -41,7 +41,17 @@
         }
     }
 
+    function sleep(milliseconds) {
+        var start = new Date().getTime();
+        for (var i = 0; i < 1e7; i++) {
+          if ((new Date().getTime() - start) > milliseconds){
+            break;
+          }
+        }
+    }
+
     async function loop() {
+        sleep(500);
         webcam.update(); // update the webcam frame
         await predict();
         window.requestAnimationFrame(loop);
@@ -53,7 +63,7 @@
         // probabilidade de predizam do arquivo
         const prediction = await model.predict(webcam.canvas);
         for (let i = 0; i < maxPredictions; i++) {
-
+            
             //evitar que os outras classes sejam preditas
             if (prediction[i].probability > 0.7) {
 
