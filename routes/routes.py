@@ -10,7 +10,7 @@ def olaMundo():
     return {"Olá":"Mundo"}
 
 #rota com método POST
-@app.route("/cadastra/usuario", methods=["POST"])
+@app.route("/alertas", methods=["POST"])
 def cadastraUsuario():
     
     #o corpo é igual a requisição feita pelo cliente em formato json

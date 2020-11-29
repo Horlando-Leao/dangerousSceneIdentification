@@ -1,0 +1,23 @@
+Redes Neurais
+
+LEARNING RATE: 
+Taxa de apredizado A taxa de aprendizado (learning rate), frequentemente indicada 
+por α ou às vezes η, indica a que ritmo os pesos são atualizados. Isso pode ser 
+fixado ou alterado de modo adaptativo.
+
+Tenha cuidado ao ajustar este número! Mesmo pequenas diferenças podem ter 
+efeitos enormes sobre o quão bem o seu modelo aprende.
+
+EPOCH:
+Uma época significa que cada amostra no conjunto de dados de treinamento foi alimentada 
+por meio do modelo de treinamento pelo menos uma vez. Se suas épocas forem definidas 
+como 50, por exemplo, isso significa que o modelo que você está treinando trabalhará 
+em todo o conjunto de dados de treinamento 50 vezes. Geralmente, quanto maior o número, 
+melhor seu modelo aprenderá a prever os dados.
+
+BATCH:
+Um lote é um conjunto de amostras usadas em uma iteração de treinamento. 
+Por exemplo, digamos que você tenha 80 imagens e escolha um tamanho de lote de 16. 
+Isso significa que os dados serão divididos em 80/16 = 5 lotes. 
+Depois que todos os 5 lotes forem alimentados pelo modelo, 
+exatamente uma época será concluída.
