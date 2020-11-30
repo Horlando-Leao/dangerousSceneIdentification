@@ -1,7 +1,7 @@
 import cv2 
 from PIL import Image, ImageFilter
-#from convert_url_to_img import url_to_image
 from convert_url_to_img import url_to_image
+#from controllers.convert_url_to_img import url_to_image()
 
 
 def detection_faces(imagem_url: str) -> str:
@@ -33,5 +33,6 @@ def detection_faces(imagem_url: str) -> str:
     except Exception as erro:
         print("Erro: ", EOFError)
 
-#url = ("https://s2.glbimg.com/lUP7OVzUYf7V6LQ0lsA_dPavEG4=/640x0/s.glbimg.com/et/nv/f/original/2013/01/14/favela-01.jpg")
-#detection_faces(url)
+
+url = ("https://s2.glbimg.com/lUP7OVzUYf7V6LQ0lsA_dPavEG4=/640x0/s.glbimg.com/et/nv/f/original/2013/01/14/favela-01.jpg")
+detection_faces(url)
