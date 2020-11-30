@@ -1,22 +1,15 @@
-import requests
-from io import BytesIO
 import cv2 
 from PIL import Image, ImageFilter
-
+from convert_url_to_img import url_to_image
 
 def detection_faces(imagem_url: str) -> str:
-    
+
     carregaAlgoritmo = cv2.CascadeClassifier("Haarcascade/haarcascade_frontalface_default.xml")
 
-    """ url = 'https://i0.wp.com/gamelogia.com.br/wp-content/uploads/2016/11/gamer.jpg?resize=1280%2C640&ssl=1'
-    response = requests.get(url)
+    imagem = url_to_image(imagem_url)
 
-    im = Image.open(BytesIO(response.content)) """
-
-    imagem = cv2.imread("./fotos/pessoa-2.jpg")
-
+    #imagem = cv2.imread('caminho')
     imagem = cv2.resize(imagem, (0,0), fx=0.7, fy=0.7) 
-
     imagemCinza = cv2.cvtColor(imagem, cv2.COLOR_BGR2GRAY)
 
     #DETECÇÃO DAS FACES
@@ -29,14 +22,14 @@ def detection_faces(imagem_url: str) -> str:
 
     #Pequena regra de negócio
     try:
-        if faces == ():
-            print("sem pessoas")
-        else:
-            count = 0
-            for faces_x in faces:
-                print(faces[count])
-                count += 1
-            print("Quat. de pessoas: ", count)
+        count = 0
+        for faces_x in faces:
+            print(faces[count])
+            count += 1
+        print("Quat. de pessoas: ", count)
 
     except Exception as erro:
         print("Erro: ", EOFError)
+
+#url = ("https://s2.glbimg.com/lUP7OVzUYf7V6LQ0lsA_dPavEG4=/640x0/s.glbimg.com/et/nv/f/original/2013/01/14/favela-01.jpg")
+#detection_faces(url)
