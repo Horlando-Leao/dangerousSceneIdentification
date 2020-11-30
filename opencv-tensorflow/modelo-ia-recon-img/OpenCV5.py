@@ -4,6 +4,8 @@ import cv2
 carregaAlgoritmo = cv2.CascadeClassifier("Haarcascade/haarcascade_frontalface_default.xml")
 
 imagem = cv2.imread("./fotos/pessoa-2.jpg")
+#imagem = cv2.imread("./fotos/sem-pessoas/casa-1.jpg")
+
 imagem = cv2.resize(imagem, (0,0), fx=0.7, fy=0.7) 
 #IMAGEM CINZA
 imagemCinza = cv2.cvtColor(imagem, cv2.COLOR_BGR2GRAY)
@@ -17,18 +19,30 @@ faces = carregaAlgoritmo.detectMultiScale(
     minSize=(20,20) #tamanho da detecção de uma face
     )
 
-print(faces)
+try:
+    if faces == ():
+        print("sem pessoas")
+    else:
+        count = 0
+        for faces_x in faces:
+            print(faces[count])
+            count += 1
+        print("Quat. de pessoas: ", count)
+
+except Exception as sem_pessoas:
+    print("Erro: ", sem_pessoas)
+
 
 
 #INDETIFICAR OS PONTOS QUE detectMultiScale DETECTOU DAS IMG
-for(x, y, l, a) in faces:
+""" for(x, y, l, a) in faces:
     #crie um retangulo nas faces que detectMultiScale localizou
     cv2.rectangle( imagem, ( x , y ), ( x + l, y + a ),( 0, 255, 0 ), 2 )
 
 
 
 cv2.imshow("Faces", imagem)
-cv2.waitKey()
+cv2.waitKey() """
 
 
 
