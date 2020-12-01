@@ -3,9 +3,8 @@ from utils import url_to_image_array
 from PIL import Image, ImageFilter
 
 
-def detection_faces(imagem_url: str) -> str:
-
-    carregaAlgoritmo = cv2.CascadeClassifier("Haarcascade/haarcascade_frontalface_default.xml")
+def detection_body(imagem_url: str) -> str:
+    carregaAlgoritmo = cv2.CascadeClassifier("Haarcascade/haarcascade_upperbody.xml")
 
     imagem = url_to_image_array(imagem_url)
 
@@ -17,9 +16,18 @@ def detection_faces(imagem_url: str) -> str:
     faces = carregaAlgoritmo.detectMultiScale(
         imagemCinza, 
         scaleFactor=1.1, 
-        minNeighbors=3,  #abordagem de vizihança, (^) = + perder os verdadeiros positivos, (v) = + falsos positivos
-        minSize=(20,20) #tamanho da detecção de uma face
+        minNeighbors=1,  #abordagem de vizihança, (^) = + perder os verdadeiros positivos, (v) = + falsos positivos
+        minSize=(50,20) #tamanho da detecção de uma face
         )
+
+    for(x, y, l, a) in faces:
+    #crie um retangulo nas faces que detectMultiScale localizou
+        cv2.rectangle( imagem, ( x , y ), ( x + l, y + a ),( 0, 255, 0 ), 2 )
+
+
+
+    cv2.imshow("Faces", imagem)
+    cv2.waitKey()
 
     #Pequena regra de negócio
     count = 0
@@ -34,5 +42,3 @@ def detection_faces(imagem_url: str) -> str:
         print("Erro: ", EOFError)
         return (count)
 
-url = ("https://s2.glbimg.com/lUP7OVzUYf7V6LQ0lsA_dPavEG4=/640x0/s.glbimg.com/et/nv/f/original/2013/01/14/favela-01.jpg")
-detection_faces(url)

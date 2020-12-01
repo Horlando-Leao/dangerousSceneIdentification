@@ -35,14 +35,14 @@ except Exception as sem_pessoas:
 
 
 #INDETIFICAR OS PONTOS QUE detectMultiScale DETECTOU DAS IMG
-""" for(x, y, l, a) in faces:
+for(x, y, l, a) in faces:
     #crie um retangulo nas faces que detectMultiScale localizou
     cv2.rectangle( imagem, ( x , y ), ( x + l, y + a ),( 0, 255, 0 ), 2 )
 
 
 
 cv2.imshow("Faces", imagem)
-cv2.waitKey() """
+cv2.waitKey()
 
 
 

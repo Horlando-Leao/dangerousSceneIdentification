@@ -22,7 +22,7 @@ def url_to_image_array(url_image: str):
         return False
 
 
-def url_to_image_dowload(url_image: str):
+def url_to_image_download(url_image: str):
 
     path = 'Pictures/pic1.jpg'
 

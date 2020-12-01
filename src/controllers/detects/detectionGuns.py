@@ -36,9 +36,6 @@ def detection_guns(url_image: str) -> array:
     print(prediction[0])
     return (prediction[0])
 
-url = "https://renovamidia.com.br/wp-content/uploads/2019/01/youth-weapon-pistol-stupid-people-with-guns-pb-FEATURE.jpg"
-predi = detection_guns(url)
-print(predi[1])
 
 
 
