@@ -8,4 +8,9 @@ response = requests.get(url)
 im = Image.open(BytesIO(response.content))
 im.show()
 
+#HASH
+import random
 
+hash = random.getrandbits(128)
+
+print("hash value: %032x" % hash)

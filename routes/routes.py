@@ -5,9 +5,9 @@ app = Flask("SecView-IA")
 
 
 #rotas com método GET
-@app.route("/olamundo", methods=["GET"])
-def olaMundo():
-    return {"Olá":"Mundo"}
+@app.route("/olamundo/<string:user>", methods=["GET"])
+def olaMundo(user: str) -> json:
+    return {"Olá":"{0}".format(user)}
 
 #rota com método POST
 @app.route("/alertas", methods=["POST"])
