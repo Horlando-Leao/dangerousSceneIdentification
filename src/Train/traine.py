@@ -1,1 +1,2 @@
-print("no pain no gain")
+def training():
+    print("no pain no gain")

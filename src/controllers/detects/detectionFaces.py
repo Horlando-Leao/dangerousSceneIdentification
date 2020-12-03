@@ -3,7 +3,7 @@ from utils import url_to_image_array
 from PIL import Image, ImageFilter
 
 
-def detection_faces(imagem_url: str) -> str:
+def detection_faces(imagem_url: str) -> int:
 
     carregaAlgoritmo = cv2.CascadeClassifier("Haarcascade/haarcascade_frontalface_default.xml")
 

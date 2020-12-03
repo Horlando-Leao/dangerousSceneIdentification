@@ -1,1 +1,2 @@
-print("lugar salvo")
+def insert():
+    print("lugar salvo")

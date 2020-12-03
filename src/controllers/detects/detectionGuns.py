@@ -1,10 +1,16 @@
 from utils import url_to_image_normal
+from utils import truncate
+
 import tensorflow.keras
 from PIL import Image, ImageOps
 import numpy as np
 
 
-def detection_guns(url_image: str) -> array:
+def detection_guns(url_image: str) -> float:
+    """RECEBE UMA URL,
+    RETORNA UM ARRAY DO TIPO FLOAT COM 2 POSIÇÕES,
+    POSIÇÃO 0: PREDIÇÃO DE ARMA,
+    POSIÇÃO 1: PREDIÇÃO DE PESSOA"""
 
     np.set_printoptions(suppress=True)
 
@@ -23,7 +29,7 @@ def detection_guns(url_image: str) -> array:
     image_array = np.asarray(image)
 
     # exibe a imagem redimensionada
-    image.show()
+    #image.show()
 
     # Normaliza a imagem
     normalized_image_array = (image_array.astype(np.float32) / 127.0) - 1
@@ -33,9 +39,24 @@ def detection_guns(url_image: str) -> array:
 
     # execute a inferência
     prediction = model.predict(data)
-    print(prediction[0])
-    return (prediction[0])
+    
+    ##organizando e formatando
 
+    classes = []
+    count = 0
+    for x in prediction[0]:
+        """ classe = ("{:.8f}".format(float(x)))
+        classes.append(round(float(classe),5)) """
+
+        classe = float(truncate(x,2))
+        classes.append(classe)
+        conta =+ 1
+        #print(classes[count],"= ", ("{:.8f}".format(float(x))) ) 
+
+    return (classes)
+
+url = "https://cdn-istoe-ssl.akamaized.net/wp-content/uploads/sites/14/2019/01/e7f66c0f0c153eba4cbf868f5eccab26632176e2.jpg"
+print( detection_guns(url) )
 
 
 
