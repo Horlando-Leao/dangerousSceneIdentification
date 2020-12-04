@@ -34,12 +34,12 @@ def detection_bodys(imagem_url: str) -> int:
         )
 
     ##crie um retangulo nas bodys que detectMultiScale localizou
-    for(x, y, l, a) in bodys:
-        cv2.rectangle( imagem, ( x , y ), ( x + l, y + a ),( 0, 255, 0 ), 2 )
+    """ for(x, y, l, a) in bodys:
+        cv2.rectangle( imagem, ( x , y ), ( x + l, y + a ),( 0, 255, 0 ), 2 ) """
 
     ##exibe a imagem
-    cv2.imshow("bodys", imagem)
-    cv2.waitKey()
+    """ cv2.imshow("bodys", imagem)
+    cv2.waitKey() """
 
     #Pequena regra de negócio
     count = 0
@@ -55,6 +55,6 @@ def detection_bodys(imagem_url: str) -> int:
         return (count)
 
 
-url = "https://www.tvsaj.com.br/wp-content/uploads/2020/06/Pessoa-em-situa%C3%A7%C3%A3o-de-rua-resgatada-pela-prefeitura-de-santo-antonio-de-jesus.jpeg"
+""" url = "https://www.tvsaj.com.br/wp-content/uploads/2020/06/Pessoa-em-situa%C3%A7%C3%A3o-de-rua-resgatada-pela-prefeitura-de-santo-antonio-de-jesus.jpeg"
 url2 = "https://amenteemaravilhosa.com.br/wp-content/uploads/2018/09/homem-andnaod-e-mexendo-no-celular.jpg"
-print(detection_bodys(url))
+print(detection_bodys(url)) """

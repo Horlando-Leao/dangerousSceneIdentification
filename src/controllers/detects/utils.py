@@ -1,3 +1,5 @@
+"""FUNÇÕES DE IMAGENS"""
+
 from urllib.request import urlopen
 import requests as req
 

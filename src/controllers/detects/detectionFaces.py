@@ -1,10 +1,11 @@
 import cv2 
-from utils import url_to_image_array
 from PIL import Image, ImageFilter
+from utils import url_to_image_array
+
 
 
 def detection_faces(imagem_url: str) -> int:
-
+    """RECEBE UMA URL DE IMAGEM E RETORNA UMA QUANTIDADE DE FACES DETECTADAS"""
     carregaAlgoritmo = cv2.CascadeClassifier("Haarcascade/haarcascade_frontalface_default.xml")
 
     imagem = url_to_image_array(imagem_url)
@@ -34,3 +35,5 @@ def detection_faces(imagem_url: str) -> int:
         print("Erro: ", EOFError)
         return (count)
 
+url = "https://istoe.com.br/wp-content/uploads/sites/14/2019/01/e7f66c0f0c153eba4cbf868f5eccab26632176e2.jpg"
+print(detection_faces(url))
