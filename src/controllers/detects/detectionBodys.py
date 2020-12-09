@@ -7,7 +7,7 @@ def detection_bodys(imagem_url: str) -> int:
     """RECEBE UMA URL DE IMAGEM, E RETORNA A QUANTIDADE 
     DE PARTES SUPERIORES DAS PESSOAS NA FOTO"""
 
-    carregaAlgoritmo = cv2.CascadeClassifier("haarcascade/haarcascade_upperbody.xml")
+    carregaAlgoritmo = cv2.CascadeClassifier("detects/haarcascade/haarcascade_upperbody.xml")
 
     imagem = url_to_image_array(imagem_url)
 

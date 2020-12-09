@@ -3,45 +3,27 @@ from detects.detectionGuns import  detection_guns
 from detects.detectionBody import  detection_bodys
 from detects.reconFacial import reconginit_face
 
-def handiling_control(url_imagem: str, n_classes:int = 1, predictis = 'yy') -> str:
+def handiling_control(url_imagem: str, predictis = 'yy') -> str:
 
-    def process_img(url_imagem: str, n_classes, predictis):
+    def process_img(url_imagem: str, df = True, db = True , dg = True):
         try:
-            if(predictis == 'yy'):
+            if(df == True and db == True and dg == True):
                 face = detection_faces(url_imagem = url_imagem)
                 body = detection_bodys(url_imagem = url_imagem)
                 gun = detection_guns(url_image = url_image)
 
-                if(n_classes == 1):
-                    return [face, body, gun[0]]
-                else:
-                    return [face, body, gun[0], gun[1]]
 
-            elif(predictis == 'yn'):
+            elif():
                 face = detection_faces(url_imagem = url_imagem)
                 gun = detection_guns(url_image = url_image)
 
-                if(n_classes == 1):
-                    return [face, gun[0]]
-                else:
-                    return [face, gun[0], gun[1]]
 
-            elif(predictis == 'ny'):
+            elif():
                 body = detection_bodys(url_imagem = url_imagem)
                 gun = detection_guns(url_image = url_image)
-
-                if(n_classes == 1):
-                    return [body, gun[0]]
-                else:
-                    return [body, gun[0], gun[1]]                
-    
+             
             else:
                 gun = detection_guns(url_image = url_image)
-
-                if(n_classes == 1):
-                    return [gun[0]]
-                else:
-                    return [gun[0], gun[1]]  
             
 
         except Exception as erro:
@@ -49,15 +31,27 @@ def handiling_control(url_imagem: str, n_classes:int = 1, predictis = 'yy') -> s
             return[0]
 
     #url = url, n_classes = 1, predictis = 'yy'
-    result = process_img(url_imagem = url_imagem, predictis = predictis)
-    items = len(result)
-    
-    if(n_classes == 1):
-        pass
-    else:
-        pass
-    """ face = result[0]
-    body = result[1]
-    gun = result[2] """
+    result = process_img(url_imagem = url_imagem)
 
-    return true
+    return True
+
+""" #tem corpo
+    if(body > 0):
+        #tem rosto e tem arma
+        if(face > 0 and gun > 0.65):
+            return ("Cuidado")
+        else:
+            #esta mascarado e tem arma
+            if(gun > 0.50):
+                return ("Cuidado")
+            #pode estar de chapeu ou capacete e não tem arma
+            else:
+                return ("Relaxa")
+    #nao tem corpo
+    else:
+        #tem 1 ou 2 rostos, suspeito, e tem arma
+        if (face > 0 and face <= 2 and gun > 0.40):
+            return("Cuidado")
+        #não tem movimento suspeito e parece não ter arma
+        else:
+            return("Relaxa") """

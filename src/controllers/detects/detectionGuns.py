@@ -11,7 +11,7 @@ def detection_guns(url_image: str) -> float:
 
     np.set_printoptions(suppress=True)
 
-    model = tensorflow.keras.models.load_model('ModelsKeras/keras_model-2.h5', compile=False)
+    model = tensorflow.keras.models.load_model('detects/ModelsKeras/keras_model-2.h5', compile=False)
 
     data = np.ndarray(shape=(1, 300, 300, 3), dtype=np.float32)
 
