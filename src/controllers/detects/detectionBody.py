@@ -55,6 +55,6 @@ def detection_bodys(imagem_url: str) -> int:
         return (count)
 
 
-""" url = "https://www.tvsaj.com.br/wp-content/uploads/2020/06/Pessoa-em-situa%C3%A7%C3%A3o-de-rua-resgatada-pela-prefeitura-de-santo-antonio-de-jesus.jpeg"
+url = "https://www.tvsaj.com.br/wp-content/uploads/2020/06/Pessoa-em-situa%C3%A7%C3%A3o-de-rua-resgatada-pela-prefeitura-de-santo-antonio-de-jesus.jpeg"
 url2 = "https://amenteemaravilhosa.com.br/wp-content/uploads/2018/09/homem-andnaod-e-mexendo-no-celular.jpg"
-print(detection_bodys(url)) """
+print(detection_bodys(url))

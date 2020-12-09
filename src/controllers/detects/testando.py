@@ -3,21 +3,10 @@ import requests as req
 
 import numpy as np
 import cv2
+
 from PIL import Image, ImageFilter
 from io import BytesIO
-
-def url_to_image_array(url_image: str):
-    """RECEBE UMA URL STRING E RETORNA UMA IMAGEM FORMATADA EM ARRAY
-    ,SALVA APENAS NA MÉMORIA RAM."""
-
-    try:
-        resp = urlopen(url_image)
-        image = np.asarray(bytearray(resp.read()), dtype="uint8")
-        image = cv2.imdecode(image, cv2.IMREAD_COLOR)
-        return image
-    except Exception as erro:
-        print("ERRO:", erro)
-        return False
+from utils import url_to_image_array
 
 def detection_faces(imagem_url: str) -> int:
     """RECEBE UMA URL DE IMAGEM E RETORNA UMA QUANTIDADE DE FACES DETECTADAS"""
