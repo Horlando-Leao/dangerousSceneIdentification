@@ -2,7 +2,6 @@ from detects.detectionFaces import detection_faces
 from detects.detectionGuns import  detection_guns
 from detects.detectionBody import  detection_bodys
 from detects.reconFacial import reconginit_face
-from detects.utils import *
 
 def handiling_auto(url_imagem: str) -> str:
 

@@ -1,13 +1,21 @@
-import cv2 
+#from PIL import Image, ImageFilter
+#import cv2 
+
+
+from urllib.request import urlopen
+import requests as req
+
+import numpy as np
+import cv2
+
 from PIL import Image, ImageFilter
+from io import BytesIO
+
 from utils import url_to_image_array
-
-
 
 def detection_faces(imagem_url: str) -> int:
     """RECEBE UMA URL DE IMAGEM E RETORNA UMA QUANTIDADE DE FACES DETECTADAS"""
     carregaAlgoritmo = cv2.CascadeClassifier("Haarcascade/haarcascade_frontalface_default.xml")
-
     imagem = url_to_image_array(imagem_url)
 
     #imagem = cv2.imread('caminho')
