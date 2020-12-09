@@ -1,15 +1,17 @@
-from detects.detectionFaces import detection_faces
-from detects.detectionGuns import  detection_guns
-from detects.detectionBody import  detection_bodys
-from detects.reconFacial import reconginit_face
+
+import detects.detectionFaces as df
+import detects.detectionBodys as db
+import detects.detectionGuns as dg
 
 def handiling_auto(url_imagem: str) -> str:
 
-    body = detection_bodys(url_imagem = url_imagem)
-    face = detection_faces(url_imagem = url_imagem)
-    gun  = detection_guns(url_image = url_image)
     
-    #tem corpo
+    face = df.detection_faces(url_imagem)
+    body = db.detection_bodys(url_imagem)
+    gun  = dg.detection_guns(url_imagem)
+    
+    return[face, body, gun]
+    """ #tem corpo
     if(body > 0):
         #tem rosto e tem arma
         if(face > 0 and gun > 0.65):
@@ -28,7 +30,7 @@ def handiling_auto(url_imagem: str) -> str:
             return("Cuidado")
         #não tem movimento suspeito e parece não ter arma
         else:
-            return("Relaxa")
+            return("Relaxa") """
 
 url = "https://cdn-istoe-ssl.akamaized.net/wp-content/uploads/sites/14/2019/01/e7f66c0f0c153eba4cbf868f5eccab26632176e2.jpg"
 print(handiling_auto(url))

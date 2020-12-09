@@ -10,7 +10,7 @@ def handiling_control(url_imagem: str, n_classes:int = 1, predictis = 'yy') -> s
             if(predictis == 'yy'):
                 face = detection_faces(url_imagem = url_imagem)
                 body = detection_bodys(url_imagem = url_imagem)
-                gun = detection_guns(url_image = url_image, n_classes= n_classes)
+                gun = detection_guns(url_image = url_image)
 
                 if(n_classes == 1):
                     return [face, body, gun[0]]
@@ -19,7 +19,7 @@ def handiling_control(url_imagem: str, n_classes:int = 1, predictis = 'yy') -> s
 
             elif(predictis == 'yn'):
                 face = detection_faces(url_imagem = url_imagem)
-                gun = detection_guns(url_image = url_image, n_classes= n_classes)
+                gun = detection_guns(url_image = url_image)
 
                 if(n_classes == 1):
                     return [face, gun[0]]
@@ -28,7 +28,7 @@ def handiling_control(url_imagem: str, n_classes:int = 1, predictis = 'yy') -> s
 
             elif(predictis == 'ny'):
                 body = detection_bodys(url_imagem = url_imagem)
-                gun = detection_guns(url_image = url_image, n_classes= n_classes)
+                gun = detection_guns(url_image = url_image)
 
                 if(n_classes == 1):
                     return [body, gun[0]]
@@ -36,7 +36,7 @@ def handiling_control(url_imagem: str, n_classes:int = 1, predictis = 'yy') -> s
                     return [body, gun[0], gun[1]]                
     
             else:
-                gun = detection_guns(url_image = url_image, n_classes= n_classes)
+                gun = detection_guns(url_image = url_image)
 
                 if(n_classes == 1):
                     return [gun[0]]
@@ -49,7 +49,7 @@ def handiling_control(url_imagem: str, n_classes:int = 1, predictis = 'yy') -> s
             return[0]
 
     #url = url, n_classes = 1, predictis = 'yy'
-    result = process_img(url_imagem = url_imagem, n_classes = n_classes, predictis = predictis)
+    result = process_img(url_imagem = url_imagem, predictis = predictis)
     items = len(result)
     
     if(n_classes == 1):

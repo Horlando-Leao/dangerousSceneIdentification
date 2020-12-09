@@ -1,0 +1,3 @@
+from detects.detectionBodys import detection_bodys
+from detects.detectionFaces import detection_faces
+from detects.detectionGuns import detection_guns
