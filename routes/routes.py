@@ -1,12 +1,14 @@
-
+""" 
 #importação do flask no py3.7
 from flask import Flask, request
 app = Flask("SecView-IA")
 
+from src.controllers.handilingAuto import handiling_auto as hand_a
+#from src.controllers.handilingControl import handiling_control as hand_c
 
 #rotas com método GET
 @app.route("/olamundo/<string:user>", methods=["GET"])
-def olaMundo(user: str) -> json:
+def olaMundo(user: str) -> str:
     return {"Olá":"{0}".format(user)}
 
 #rota com método POST
@@ -43,4 +45,4 @@ def geraResponse(status: int, mensagem: str, nomeConteudo:str =False , conteudo:
     return (response)
 
 #Rodar api - aplicações
-app.run()
+app.run() """

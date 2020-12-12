@@ -10,7 +10,8 @@ from utilities.utils import url_to_image_array
 def detection_faces(imagem_url: str) -> int:
     """RECEBE UMA URL DE IMAGEM E RETORNA UMA QUANTIDADE DE FACES DETECTADAS"""
 
-    carregaAlgoritmo = cv2.CascadeClassifier("detects/haarcascade/haarcascade_frontalface_default.xml")
+    carregaAlgoritmo = cv2.CascadeClassifier("src\controllers\detects\haarcascade\haarcascade_frontalface_default.xml")
+    #carregaAlgoritmo = cv2.CascadeClassifier("detects/haarcascade/haarcascade_frontalface_default.xml")
     imagem = url_to_image_array(imagem_url)
 
     #imagem = cv2.imread('caminho')
@@ -31,7 +32,7 @@ def detection_faces(imagem_url: str) -> int:
         for faces_x in faces:
             print(faces[count])
             count += 1
-        print("Quat. de pessoas: ", count)
+        print("Quat. de faces: ", count)
         return (count)
 
     except Exception as erro:

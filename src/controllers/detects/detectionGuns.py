@@ -10,8 +10,8 @@ def detection_guns(url_image: str) -> float:
     """1:RECEBE UMA URL E RETORNA TODAS AS PREDIÇÕES."""
 
     np.set_printoptions(suppress=True)
-
-    model = tensorflow.keras.models.load_model('detects/ModelsKeras/keras_model-2.h5', compile=False)
+    model = tensorflow.keras.models.load_model("src\controllers\detects\ModelsKeras\keras_model-2.h5")
+    #model = tensorflow.keras.models.load_model('detects/ModelsKeras/keras_model-2.h5', compile=False)
 
     data = np.ndarray(shape=(1, 300, 300, 3), dtype=np.float32)
 
