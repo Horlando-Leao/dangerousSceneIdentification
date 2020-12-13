@@ -47,7 +47,7 @@ def detect_no_treat(url):
     
     result_str = array_to_string(result)
 
-    return geraResponse(200, "Imagem processada com sucesso", "deteção", result_str)
+    return geraResponse(200, "Imagem processada com sucesso", "detecção", result_str)
 
 
 @app.route("/alerta/comtratamento/<string:url>", methods=["GET"])

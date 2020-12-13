@@ -35,11 +35,11 @@ except Exception as identifier:
     print("erro", identifier)
  """
 
-str1 = "https://image.freepik.com/fotos-gratis/pessoas-andando-agarrado-por-ombros_1139-456.jpg"
+""" str1 = "https://image.freepik.com/fotos-gratis/pessoas-andando-agarrado-por-ombros_1139-456.jpg"
 str2 = str1.replace("/", "||")
 print(str2)
 
 str3 = str2.replace("||", "/")
-print(str3)
+print(str3) """
 
 
