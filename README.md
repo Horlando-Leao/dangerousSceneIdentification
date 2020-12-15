@@ -21,4 +21,4 @@ Avalia se a pessoa está encapuzado, quantidade de pessoas e se possui armas na 
 #### 2: passe o link já modificado como parâmetro após a última barra da url
 
 ### Ficaria algo assim:
-url = "http://servidor.inexistente.ainda/http:||||fotos.google||minha-imagem-sexy.jpg"
+url = "http://servidor.inexistente.ainda/http:||||fotos.google||minha-imagem.jpg"
