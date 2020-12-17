@@ -9,7 +9,6 @@ from handiling import handiling_control
 
 app = Flask("SecView-IA")
 
-
 def valid_url(url_valid:str =False)-> bool:
     """VALIDA A DISPONIBILIDADE DO SERVIDOR"""
     try:
@@ -34,52 +33,29 @@ def olaMundo(user: str) -> str:
     return {"Olá":"{0}".format(user)}
 
 
-@app.route("/alerta/semtratamento/<string:url>", methods=["GET"])
+@app.route("/detecartudo//<string:url>", methods=["GET"])
 def detect_no_treat(url):
     
     url = url.replace("||", "/")
 
     if(valid_url(url) == False):
-        return geraResponse( 400, "o parametro (url) é obrigatório")
+        return response_generator( 400, "o parametro (url) é obrigatório")
 
-    
     result = handiling_auto(url)
-    
-    result_str = array_to_string(result)
-
-    return geraResponse(200, "Imagem processada com sucesso", "detecção", result_str)
-
-
-@app.route("/alerta/comtratamento/<string:url>", methods=["GET"])
-def detect_with_treat(url):
-    
-    #o corpo é igual a requisição feita pelo cliente em formato json
-    body = request.get_json()
-
-    #verificar se o nome foi passado no corpo da requisição
-    if("nome" not in body):
-        return geraResponse( 400, "o parametro (nome) é obrigatório")
-    
-    #chamar a função desejada
-    #no meu caso, chamei a função para inserir um usuario, passando tudo que peguei no corpo da requisição do cliente
-    usuario = [body["nome"], body["email"], body["senha"]]
-
-    # na minha função coloquei um retorno se o usuario foi inserido corretament na base.
-    #por padrão: se sim status code:200, se não, status code:400.
-    #e mais algunha mensagem de preferência do desenvolvedor.
-    return geraResponse(200, "Usuário inserido", "user", usuario)
+    return response_generator(200, "Imagem processada com sucesso", str(result[0]), str(result[1]), str(result[2]), str(result[3]))
 
 #trabalhar com todas as respostas das rotas
-def geraResponse(status: int, mensagem: str, nomeConteudo:str =False , conteudo:str =False ):
+def response_generator(status: int, mensage: str, quatPeople:str ="", quatFaces:str = "", probilidGun:str = "", noProbilidGun:str = "" ):
+
     response = {}
     response["status"] = status
-    response["mensagem"] = mensagem
-
-    #verificar se o conteudo foi inserido
-    if(nomeConteudo and conteudo):
-        response[nomeConteudo] = conteudo
-
+    response["mensagem"] = mensage
+    response["pessoas"] = quatPeople
+    response["faces"] = quatFaces
+    response["probabilidadeArma"] = probilidGun
+    response["probabilidadeNaoSerArma"] = noProbilidGun
     return (response)
+
 
 #Rodar api
 if __name__ == "__main__":

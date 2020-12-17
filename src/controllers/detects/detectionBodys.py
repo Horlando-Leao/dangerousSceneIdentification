@@ -28,9 +28,9 @@ def detection_bodys(imagem_url: str) -> int:
     bodys = carregaAlgoritmo.detectMultiScale(
         imagemCinza, 
         scaleFactor=1.1, 
-        #minNeighbors=3,  #abordagem de vizihança, (^) = + perder os verdadeiros positivos, (v) = + falsos positivos
+        minNeighbors=3,  #abordagem de vizihança, (^) = + perder os verdadeiros positivos, (v) = + falsos positivos
         minSize=(1,1),
-        maxSize=(50,50) 
+        maxSize=(20,60) 
         )
 
     ##crie um retangulo nas bodys que detectMultiScale localizou

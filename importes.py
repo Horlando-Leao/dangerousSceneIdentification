@@ -42,4 +42,26 @@ print(str2)
 str3 = str2.replace("||", "/")
 print(str3) """
 
+class minhaClasse:
+    def __init__(self, nomeClase):
+        self.nomeClase = nomeClase
+
+    def setNomeClasse(self, nomeClase):
+        self.nomeClase = nomeClase
+
+    def getNomeClasse(self):
+        return self.nomeClase
+
+
+
+call = minhaClasse("aaaa")
+print(call.getNomeClasse())
+
+call.setNomeClasse("bbbb")
+print(call.getNomeClasse())
+
+call.setNomeClasse("ccccc")
+print(call.getNomeClasse())
+
+
 

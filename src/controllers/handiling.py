@@ -5,12 +5,11 @@ import detects.detectionGuns as dg
 
 def handiling_auto(url_imagem: str) -> float:
 
-
-    face = df.detection_faces(url_imagem)
     body = db.detection_bodys(url_imagem)
+    face = df.detection_faces(url_imagem)
     gun  = dg.detection_guns(url_imagem)
     
-    return[face, body, gun[0], gun[1]]
+    return[body, face, gun[0], gun[1]]
 
 
 def handiling_control(url_imagem: str, faces:bool = True, bodys:bool = True, guns:bool = True, compile:bool = False):
