@@ -37,6 +37,9 @@ def detection_guns(url_image: str) -> float:
     # execute a inferência
     prediction = model.predict(data)
     
+    print("\n\n\n")
+    print(model.summary())
+    print('\n\n\n')
     ##organizando e formatando
 
     classes = []
