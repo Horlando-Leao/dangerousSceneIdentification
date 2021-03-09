@@ -33,7 +33,7 @@ def olaMundo(user: str) -> str:
     return {"Olá":"{0}".format(user)}
 
 
-@app.route("/detecartudo//<string:url>", methods=["GET"])
+@app.route("/detectartudo/<string:url>", methods=["GET"])
 def detect_no_treat(url):
     
     url = url.replace("||", "/")
